@@ -67,10 +67,11 @@ router.post(
         }
       );
       // res.send("User register");
-    } catch (err) {}
-    console.log(err.message);
-    res.status(500).send("Server Error");
-    // console.log(req.body);
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).send("Server Error");
+      // console.log(req.body);
+    }
   }
 );
 module.exports = router;

@@ -38,7 +38,7 @@ router.post(
       }
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        res.status(400).json({ errors: [{ msg : "Invalid Credentials" }] });
+        res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
       }
       // return  jsonwebtoken
       const payload = {
@@ -56,10 +56,11 @@ router.post(
         }
       );
       // res.send("User register");
-    } catch (err) {}
-    console.log(err.message);
-    res.status(500).send("Server Error");
-    // console.log(req.body);
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).send("Server Error");
+      // console.log(req.body);
+    }
   }
 );
 module.exports = router;
