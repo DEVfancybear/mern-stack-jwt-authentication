@@ -1,12 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const connectDB = require("./config/db");
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // connect database
 connectDB();
+app.use(cors());
+
 // init meddelwares
-app.use(express.json({extended: false}))
+app.use(express.json({ extended: false }));
 app.get("/", (req, res) => res.send("Hello World!"));
 
 // define routes
