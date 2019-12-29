@@ -12,7 +12,7 @@ const Login = ({ login, isAuthenticated }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async e => {
     e.preventDefault();
-    login(email, password);
+    login({ email, password });
   };
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
